@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <algorithm>
 
 // We have a lot of sorting algorithms!
 
@@ -172,6 +173,13 @@ int main()
   std::vector<int> vecCopy = vec;
 
   clock_t init = clock();
+  // STL already has a sort method. Testing you can see that it is slower than
+  // both quick and merge sorts
+  std::sort(vec.begin(), vec.end());
+  std::cout << "Sort da STL: " << static_cast<float>(clock() - init) / CLOCKS_PER_SEC << std::endl;
+
+  vec = vecCopy;
+  init = clock();
   quickSort(vec);
   std::cout << "Quick sort: " << static_cast<float>(clock() - init) / CLOCKS_PER_SEC << std::endl;
 
