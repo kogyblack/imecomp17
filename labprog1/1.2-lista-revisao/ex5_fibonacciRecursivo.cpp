@@ -19,9 +19,7 @@ int fibonacciDontDoLikeThis(int n)
 // It consists in storing all previously calculated results and
 // getting them instead of recalculating.
 // This algorithm has O(N logN) complexity, because map has O(logN)
-// complexity (you didn't exhausted the map hashtable.. After this
-// you will get cache miss every single call and the actual complexity
-// will be a factor of logN)
+// complexity
 int fibonacci(int n)
 {
   static std::map<int, int> cache;
