@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Sistema de Alocação de Pessoal</title>
+</head>
+
+<body>
+<header>
+  <div><h1>Sistema de Alocação de Pessoal</h1></div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="#">Funcionários</a></li>
+    <li><a href="#">Tarefas</a></li>
+    <li><a href="#">Clientes</a></li>
+    <li><a href="#">Relatórios</a></li>
+  </ul>
+</nav>
+
+<div id="content">
+  <div id="calendar">
+    <table id="calendar-table">
+      <tr>
+        <th>Segunda</th>
+        <th>Terça</th>
+        <th>Quarta</th>
+        <th>Quinta</th>
+        <th>Sexta</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="tarefas">
+    <div>
+      <div class="styled-select">
+        <select>
+          <option value="todos">Todos</option>
+          <option value="cliente">Cliente</option>
+          <option value="prioridade">Prioridade</option>
+          <option value="limite">Data Limite</option>
+          <option value="local">Local</option>
+        </select>
+      </div>
+      <div class="styled-search rounded">
+        <input type="text" name="search" placeholder="Busca">
+      </div>
+    </div>
+    <div id="tarefas-lista">
+      <table id="tarefas-table">
+        <tr>
+          <th width="80">Prioridade</th>
+          <th width="80">Data Limite</th>
+          <th>Nome</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+header {
+  border: 1px solid #000;
+}
+
+header div {
+  /*padding: 40px 80px;*/
+  padding: 40px 5%;
+}
+
+h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: verdana;
+  background-color: #dfdfff;
+}
+
+nav {
+  display: block;
+  margin: 4px;
+  padding: 0px 5%;
+  overflow: hidden;
+  width: 80%;
+  /*text-align: center;*/
+}
+
+nav ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+#content {
+  padding: 30px 5%;
+  /*border: 1px solid #000;*/
+}
+
+#calendar {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+}
+
+#calendar-table {
+  position: relative;
+  width: 100%;
+  /*border-collapse: collapse;*/
+  border-spacing: 4px;
+}
+
+#calendar-table td, #calendar-table th {
+  /*border: 1px solid #000;*/
+  text-align: center;
+  height: 240px;
+  width: 10%;
+}
+
+#calendar-table td {
+  background-color: #fff;
+  border-radius: 7px;
+}
+
+#calendar-table tr:first-child th {
+  border: none;
+  height: 1em;
+}
+
+#tarefas {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  left: 120px;
+  width: 30%;
+}
+
+.styled-select
+{
+  position: relative;
+  display: inline-block;
+  height: 29px;
+}
+
+.styled-select select
+{
+  background: white;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  width: 120px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.styled-search
+{
+  position: relative;
+  display: inline-block;
+  height: 29px;
+}
+
+.styled-search input
+{
+  background: white;
+  border: none;
+  height: 29px;
+  width: 380px;
+
+  border-radius: 8px;
+  text-indent: 8px;
+  box-sizing: border-box;
+}
+
+#tarefas-table
+{
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 16px;
+}
+
+#tarefas-table td, #tarefas-table th {
+  border: 1px solid #ccc;
+  text-align: center;
+  height: 24px;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+#tarefas-table td {
+  background-color: #fff;
+}
+
+#tarefas-table tr:first-child th {
+  border: none;
+  height: 1em;
+}
