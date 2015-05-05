@@ -130,13 +130,31 @@ nav ul li {
   padding: 4px;
   font-size: 12px;
   font-weight: normal;
+  border-top: none;
+  border-bottom: none;
 }
 
 #tarefas-table td {
   background-color: #fff;
 }
 
+#tarefas-table tr:nth-child(even) td {
+  background-color: #aad;
+}
+
 #tarefas-table tr:first-child th {
   border: none;
   height: 1em;
+}
+
+#tarefas-table tr td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-left: none;
+}
+
+#tarefas-table tr td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-right: none;
 }
