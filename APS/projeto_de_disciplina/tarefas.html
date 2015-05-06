@@ -23,65 +23,36 @@
 </nav>
 
 <div id="content">
-  <div id="calendar">
-    <table id="calendar-table">
-      <tr>
-        <th><span class="arrow-left float-left"></span>Segunda-feira</th>
-        <th>Terça-feira</th>
-        <th>Quarta-feira</th>
-        <th>Quinta-feira</th>
-        <th>Sexta-feira <span class="arrow-right float-right"></span></th>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>04/05/2015</td>
-        <td>05/05/2015</td>
-        <td>06/05/2015</td>
-        <td>07/05/2015</td>
-        <td>08/05/2015</td>
-      </tr>
-    </table>
-  </div>
-
-  <div id="tarefas">
-    <div id="tarefas-head">
-      <div class="styled float-left">
+  <div id="clientes">
+    <div id="page"><h2>Tarefas</h2></div>
+    <div class="styled full-width">
+      <button type="button">Adicionar</button>
+      <div class="float-right">
         <select>
           <option value="todos">Todos</option>
-          <option value="cliente">Cliente</option>
           <option value="prioridade">Prioridade</option>
           <option value="limite">Data Limite</option>
+          <option value="cliente">Cliente</option>
           <option value="local">Local</option>
         </select>
-      </div>
-      <div class="styled float-right">
-        <input type="text" name="search" placeholder="Busca">
+        <input type="text" name="search" placeholder="Busca Tarefa">
       </div>
     </div>
-    <div>
+    <div id="clientes-lista">
       <table class="table">
         <tr>
-          <th width="80">Prioridade</span></th>
+          <th width="80">Prioridade</th>
           <th width="100">Data Limite</th>
-          <th>Nome <span class="arrow-down small"></th>
+          <th width="200">Nome <span class="arrow-down small"></th>
+          <th width="200">Cliente</th>
+          <th width="200">Local</th>
           <th width="100">Tags</th>
         </tr>
         <tr>
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -102,24 +73,7 @@
           <td><span class="normal">NORMAL</span></td>
           <td>05/05/2015</td>
           <td>Lorem Ipsum</td>
-          <td>
-            <a href="#" class="tooltip">
-              <div class="tag green"></div>
-              <span class="green">Tag #1</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag blue"></div>
-              <span class="blue">Tag #2</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag red"></div>
-              <span class="red">Tag #3</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td><span class="urgente">URGENTE</span></td>
-          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -140,24 +94,7 @@
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
           <td>Lorem Ipsum</td>
-          <td>
-            <a href="#" class="tooltip">
-              <div class="tag green"></div>
-              <span class="green">Tag #1</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag blue"></div>
-              <span class="blue">Tag #2</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag red"></div>
-              <span class="red">Tag #3</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td><span class="urgente">URGENTE</span></td>
-          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -178,24 +115,7 @@
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
           <td>Lorem Ipsum</td>
-          <td>
-            <a href="#" class="tooltip">
-              <div class="tag green"></div>
-              <span class="green">Tag #1</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag blue"></div>
-              <span class="blue">Tag #2</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag red"></div>
-              <span class="red">Tag #3</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td><span class="urgente">URGENTE</span></td>
-          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -216,24 +136,7 @@
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
           <td>Lorem Ipsum</td>
-          <td>
-            <a href="#" class="tooltip">
-              <div class="tag green"></div>
-              <span class="green">Tag #1</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag blue"></div>
-              <span class="blue">Tag #2</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag red"></div>
-              <span class="red">Tag #3</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td><span class="urgente">URGENTE</span></td>
-          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -254,24 +157,7 @@
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
           <td>Lorem Ipsum</td>
-          <td>
-            <a href="#" class="tooltip">
-              <div class="tag green"></div>
-              <span class="green">Tag #1</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag blue"></div>
-              <span class="blue">Tag #2</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag red"></div>
-              <span class="red">Tag #3</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td><span class="urgente">URGENTE</span></td>
-          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -292,24 +178,7 @@
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
           <td>Lorem Ipsum</td>
-          <td>
-            <a href="#" class="tooltip">
-              <div class="tag green"></div>
-              <span class="green">Tag #1</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag blue"></div>
-              <span class="blue">Tag #2</span>
-            </a>
-            <a href="#" class="tooltip">
-              <div class="tag red"></div>
-              <span class="red">Tag #3</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td><span class="urgente">URGENTE</span></td>
-          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
@@ -329,6 +198,29 @@
         <tr>
           <td><span class="urgente">URGENTE</span></td>
           <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <a href="#" class="tooltip">
+              <div class="tag green"></div>
+              <span class="green">Tag #1</span>
+            </a>
+            <a href="#" class="tooltip">
+              <div class="tag blue"></div>
+              <span class="blue">Tag #2</span>
+            </a>
+            <a href="#" class="tooltip">
+              <div class="tag red"></div>
+              <span class="red">Tag #3</span>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="urgente">URGENTE</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
           <td>Lorem Ipsum</td>
           <td>
             <a href="#" class="tooltip">
