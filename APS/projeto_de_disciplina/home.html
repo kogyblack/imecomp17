@@ -14,10 +14,10 @@
 
 <nav>
   <ul>
-    <li><a href="home.html">Home</a></li>
-    <li><a href="#">Funcionários</a></li>
-    <li><a href="#">Tarefas</a></li>
-    <li><a href="#">Clientes</a></li>
+    <li><a href="home.html">Home</a> / </li>
+    <li><a href="#">Funcionários</a> / </li>
+    <li><a href="#">Tarefas</a> / </li>
+    <li><a href="#">Clientes</a> / </li>
     <li><a href="#">Relatórios</a></li>
   </ul>
 </nav>
@@ -26,11 +26,11 @@
   <div id="calendar">
     <table id="calendar-table">
       <tr>
-        <th>Segunda</th>
-        <th>Terça</th>
-        <th>Quarta</th>
-        <th>Quinta</th>
-        <th>Sexta</th>
+        <th><span class="arrow-left float-left"></span>Segunda-feira</th>
+        <th>Terça-feira</th>
+        <th>Quarta-feira</th>
+        <th>Quinta-feira</th>
+        <th>Sexta-feira <span class="arrow-right float-right"></span></th>
       </tr>
       <tr>
         <td></td>
@@ -50,8 +50,8 @@
   </div>
 
   <div id="tarefas">
-    <div>
-      <div class="styled-select">
+    <div id="tarefas-head">
+      <div class="styled float-left">
         <select>
           <option value="todos">Todos</option>
           <option value="cliente">Cliente</option>
@@ -60,36 +60,157 @@
           <option value="local">Local</option>
         </select>
       </div>
-      <div class="styled-search rounded">
+      <div class="styled float-right">
         <input type="text" name="search" placeholder="Busca">
       </div>
     </div>
-    <div id="tarefas-lista">
-      <table id="tarefas-table">
+    <div>
+      <table class="table">
         <tr>
-          <th width="80">Prioridade</th>
+          <th width="80">Prioridade <span class="arrow-down small"></span></th>
           <th width="100">Data Limite</th>
           <th>Nome</th>
+          <th width="100">Tags</th>
         </tr>
         <tr>
-          <td><span style="font-weight: bold; color: red;">URGENTE</span></td>
-          <td></td>
-          <td></td>
+          <td><span class="urgente">URGENTE</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
         </tr>
         <tr>
-          <td><span style="font-weight: bold; color: red;">URGENTE</span></td>
-          <td></td>
-          <td></td>
+          <td><span class="urgente">URGENTE</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
         </tr>
         <tr>
-          <td><span style="font-weight: bold; color: red;">URGENTE</span></td>
-          <td></td>
-          <td></td>
+          <td><span class="urgente">URGENTE</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
         </tr>
         <tr>
-          <td><span style="font-weight: bold; color: red;">URGENTE</span></td>
-          <td></td>
-          <td></td>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="normal">NORMAL</span></td>
+          <td>05/05/2015</td>
+          <td>Lorem Ipsum</td>
+          <td>
+            <div class="tag green"></div>
+            <div class="tag blue"></div>
+            <div class="tag red"></div>
+          </td>
         </tr>
       </table>
     </div>

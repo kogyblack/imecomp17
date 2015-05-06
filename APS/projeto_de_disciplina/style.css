@@ -1,5 +1,8 @@
 header {
-  border: 1px solid #000;
+  /*border: 1px solid #000;*/
+  background: #aad;
+  margin: 0px;
+  padding: 0px;
 }
 
 header div {
@@ -36,8 +39,16 @@ nav ul li {
   list-style-type: none;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
 #content {
-  padding: 30px 5%;
+  padding: 40px 5%;
   /*border: 1px solid #000;*/
 }
 
@@ -79,14 +90,19 @@ nav ul li {
   width: 30%;
 }
 
-.styled-select
+#tarefas-head {
+  height: 29px;
+  width: 100%;
+}
+
+.styled
 {
   position: relative;
   display: inline-block;
   height: 29px;
 }
 
-.styled-select select
+.styled select
 {
   background: white;
   border: none;
@@ -97,14 +113,7 @@ nav ul li {
   border-radius: 8px;
 }
 
-.styled-search
-{
-  position: relative;
-  display: inline-block;
-  height: 29px;
-}
-
-.styled-search input
+.styled input
 {
   background: white;
   border: none;
@@ -116,14 +125,25 @@ nav ul li {
   box-sizing: border-box;
 }
 
-#tarefas-table
+.styled button
+{
+  background: white;
+  /*border: none;*/
+  font-size: 14px;
+  height: 29px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.table
 {
   border-collapse: collapse;
   width: 100%;
   margin-top: 16px;
 }
 
-#tarefas-table td, #tarefas-table th {
+.table td, .table th {
   border: 1px solid #ccc;
   text-align: center;
   height: 24px;
@@ -134,27 +154,122 @@ nav ul li {
   border-bottom: none;
 }
 
-#tarefas-table td {
+.table td {
   background-color: #fff;
 }
 
-#tarefas-table tr:nth-child(even) td {
-  background-color: #aad;
+.table tr:nth-child(even) td {
+  background-color: #ccf;
 }
 
-#tarefas-table tr:first-child th {
+.table tr:first-child th {
   border: none;
   height: 1em;
 }
 
-#tarefas-table tr td:first-child {
+.table tr td:first-child {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   border-left: none;
 }
 
-#tarefas-table tr td:last-child {
+.table tr td:last-child {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   border-right: none;
+}
+
+#clientes {
+  margin: auto;
+  width: 70%;
+}
+
+#page {
+  padding-left: 16px;
+}
+
+#clientes-lista {
+  padding-top: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.urgente {
+  font-weight: bold;
+  color: red;
+}
+
+.normal {
+  font-weight: bold;
+  color: green;
+}
+
+.tag {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+}
+
+.green { background-color: green; }
+.red   { background-color: red;   }
+.blue  { background-color: blue;  }
+
+.arrow-top,
+.arrow-down,
+.arrow-left,
+.arrow-right {
+  /*
+   * In Internet Explorer, The"border-style: dashed" will never be
+   * rendered unless "(width * 5) >= border-width" is true.
+   * Since "width" is set to "0", the "dashed-border" remains
+   * invisible to the user, which renders the border just like how
+   * "border-color: transparent" renders.
+   */
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.53em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 15px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0;
+}
+
+.arrow-top {
+  border-bottom-width: 1em;
+  border-bottom-style: solid;
+  border-bottom-color: #666;
+  bottom: 0.25em;
+}
+
+.arrow-right {
+  border-left-width: 1em;
+  border-left-style: solid;
+  border-left-color: #666;
+  left: 0.25em;
+}
+
+.arrow-down {
+  border-top-width: 1em;
+  border-top-style: solid;
+  border-top-color: #666;
+  top: 0.25em;
+}
+
+.arrow-left {
+  border-right-width: 1em;
+  border-right-style: solid;
+  border-right-color: #666;
+  right: 0.25em;
+}
+
+.small {
+  font-size: 8px;
 }
