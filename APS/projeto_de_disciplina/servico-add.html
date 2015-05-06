@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Sistema de Alocação de Pessoal</title>
+</head>
+
+<body>
+<header>
+  <div><h1>Sistema de Alocação de Pessoal</h1></div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="home.html">Home</a> / </li>
+    <li><a href="servicos.html">Serviços</a> / </li>
+    <li><a href="funcionarios.html">Funcionários</a> / </li>
+    <li><a href="clientes.html">Clientes</a> / </li>
+    <li><a href="#">Relatórios</a></li>
+  </ul>
+</nav>
+
+<div id="content">
+  <div id="clientes">
+    <div id="page"><h2>Adicionar Serviço</h2></div>
+    <div>
+      <table class="table table-form">
+        <tr>
+          <th style="width:300px;"></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>Nome:</td>
+          <td><div class="styled bordered">
+              <input type="text" name="nome" placeholder="Nome do Serviço">
+          </div></td>
+        </tr>
+        <tr>
+          <td>Descrição:</td>
+          <td><div class="styled bordered">
+              <textarea name="descricao" rows="4"></textarea>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Cliente:</td>
+          <td><div class="styled bordered">
+              <input type="text" name="cliente" placeholder="Nome do Cliente">
+          </div></td>
+        </tr>
+        <tr>
+          <td>Data Limite de Término:</td>
+          <td><div class="styled bordered">
+              <input type="date" name="data-limite"></input>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Prioridade:</td>
+          <td>
+            <div class="styled bordered">
+              <select class="bordered">
+                <option value="normal">Normal</option>
+                <option value="urgente">Urgente</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br />
+      <div class="styled">
+        <button type="button">Adicionar Serviço</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

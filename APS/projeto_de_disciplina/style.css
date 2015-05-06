@@ -125,9 +125,16 @@ nav ul li {
   border-radius: 8px;
 }
 
+.styled.bordered select
+{
+  border: initial;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+}
+
 .styled input
 {
-  background: white;
+  background: #fff;
   border: none;
   height: 29px;
   width: 380px;
@@ -135,6 +142,13 @@ nav ul li {
   border-radius: 8px;
   text-indent: 8px;
   box-sizing: border-box;
+}
+
+.styled.bordered input
+{
+  border: initial;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
 }
 
 .styled button
@@ -148,11 +162,29 @@ nav ul li {
   border-radius: 8px;
 }
 
+.styled textarea
+{
+  background: #fff;
+  border: none;
+  /*height: 29px;*/
+  width: 380px;
+
+  border-radius: 8px;
+  text-indent: 8px;
+  box-sizing: border-box;
+}
+
+.styled.bordered textarea
+{
+  border: initial;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+}
+
 .table
 {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 16px;
 }
 
 .table td, .table th {
@@ -189,6 +221,19 @@ nav ul li {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   border-right: none;
+}
+
+.table-form td {
+  text-align: left;
+}
+
+.table-form tr td:first-child {
+  text-align: center;
+}
+
+.table-form tr:first-child th {
+  padding: 0;
+  height: 0;
 }
 
 #clientes {
