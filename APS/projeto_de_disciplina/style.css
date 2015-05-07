@@ -263,6 +263,10 @@ nav ul li {
   color: green;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .tag {
   display: inline-block;
   height: 16px;
