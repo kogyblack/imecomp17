@@ -89,11 +89,10 @@ void tra(const double* x, const int row, const int col,
   *zcol = row;
 }
 
-int main(int argc, char** argv) {
+int main() {
   // temps
   int i, j;
   char buffer[1024];
-  char cpbf[1024];
 
   unsigned short port = 11235;
 
@@ -255,7 +254,7 @@ int main(int argc, char** argv) {
     printf("Sending result message...");
     sprintf(buffer, resultmes, MES_BEAT);
 
-    char* p = buffer + strlen(buffer)+1;
+    char* p = buffer + strlen(buffer);
     for (i = 0; i < row; ++i) {
       for (j = 0; j < col; ++j) {
         p += sprintf(p, "%f ", z[i * col + j]);
