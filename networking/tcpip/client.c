@@ -1,3 +1,8 @@
+/**
+ * \file: client.c
+ * \author: Naum Azeredo
+ */
+
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -24,7 +29,6 @@ int main(int argc, char** argv) {
   }
 
   // temps
-  int i, j;
   char buffer[1024];
 
   unsigned short port = atoi(argv[2]);

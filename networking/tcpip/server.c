@@ -1,3 +1,8 @@
+/**
+ * \file: server.c
+ * \author: Naum Azeredo
+ */
+
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
