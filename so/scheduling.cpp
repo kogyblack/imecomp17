@@ -12,7 +12,7 @@
 using namespace std;
 
 const int rr_timeout = 10;
-const int q1_timeout = 100;
+const int q1_timeout = 40;
 const int io_timeout = 20;
 
 struct Process {
