@@ -1,0 +1,92 @@
+4 - produto, vendedor, cliente, venda
+
+5 - Todos os tipos e tamanhos parecem estar coerentes. Os fk não possuem modificador
+de 'not null', mas como são gerenciados pelo SGBD, então não deve ser problema a
+menos que o SGBD seja inseguro e não verifique a existência do fk.
+
+                             Table "public.produto"
+   Column   |     Type      | Modifiers | Storage  | Stats target | Description 
+------------+---------------+-----------+----------+--------------+-------------
+ id         | integer       | not null  | plain    |              | 
+ nome       | character(30) |           | extended |              | 
+ estoque    | integer       |           | plain    |              | 
+ valor_unit | real          |           | plain    |              | 
+Indexes:
+    "pk_produto" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "venda" CONSTRAINT "fk_venda_produto" FOREIGN KEY (id_produto) REFERENCES produto(id)
+Has OIDs: no
+
+                           Table "public.cliente"
+ Column |     Type      | Modifiers | Storage  | Stats target | Description 
+--------+---------------+-----------+----------+--------------+-------------
+ id     | integer       | not null  | plain    |              | 
+ nome   | character(30) |           | extended |              | 
+ tel    | character(10) |           | extended |              | 
+ email  | character(30) |           | extended |              | 
+ end    | character(50) |           | extended |              | 
+Indexes:
+    "pk_cliente" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "venda" CONSTRAINT "fk_venda_cliente" FOREIGN KEY (id_cliente) REFERENCES cliente(id)
+Has OIDs: no
+
+                           Table "public.venda"
+   Column    |  Type   | Modifiers | Storage | Stats target | Description 
+-------------+---------+-----------+---------+--------------+-------------
+ id          | integer | not null  | plain   |              | 
+ data        | date    |           | plain   |              | 
+ id_cliente  | integer |           | plain   |              | 
+ id_produto  | integer |           | plain   |              | 
+ qtde        | integer |           | plain   |              | 
+ valor       | real    |           | plain   |              | 
+ id_vendedor | integer |           | plain   |              | 
+Indexes:
+    "pk_venda" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "fk_venda_cliente" FOREIGN KEY (id_cliente) REFERENCES cliente(id)
+    "fk_venda_produto" FOREIGN KEY (id_produto) REFERENCES produto(id)
+    "fk_venda_vendedor" FOREIGN KEY (id_vendedor) REFERENCES vendedor(id)
+Has OIDs: no
+
+                          Table "public.vendedor"
+ Column |     Type      | Modifiers | Storage  | Stats target | Description 
+--------+---------------+-----------+----------+--------------+-------------
+ id     | integer       | not null  | plain    |              | 
+ nome   | character(30) |           | extended |              | 
+ tel    | character(10) |           | extended |              | 
+ email  | character(30) |           | extended |              | 
+Indexes:
+    "pk_vendedor" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "venda" CONSTRAINT "fk_venda_vendedor" FOREIGN KEY (id_vendedor) REFERENCES vendedor(id)
+Has OIDs: no
+
+
+8 - Surge o erro:
+
+ERROR:  update or delete on table "vendedor" violates foreign key constraint "fk_venda_vendedor" on table "venda"
+DETAIL:  Key (id)=(2) is still referenced from table "venda".
+
+Pois, como o detalhe afirma, o vendedor está referenciado em alguma venda.
+
+11 - Surge o erro:
+
+ERROR:  update or delete on table "cliente" violates foreign key constraint "fk_venda_cliente" on table "venda"
+DETAIL:  Key (id)=(13) is still referenced from table "venda".
+
+Pois o cliente adicionado está referenciado na venda efetuada.
+
+12 - Não surge mensagem  além da confirmação da remoção pois não tem fk
+para vendas, então a venda não é referenciada em nenhuma outra tabela.
+
+13 - Não surge mensagem além da confirmação da remoção pois os dados do cliente
+não estão mais sendo referenciados em nenhuma tabela.
+
+15 - Valor: 361
+
+16 - Não existe consistência pois a venda possui o valor da venda e o produto
+tem o preço da unidade, portanto é possível que se adicione dados
+inconsistentes. Para assegurar a consistência pode-se retirar a coluna de valor
+da tabela de vendas. Assim dado a quantidade e qual o produto na venda é
+possivel calcular o valor da venda.

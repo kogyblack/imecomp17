@@ -1,0 +1,239 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cliente (
+    id integer NOT NULL,
+    nome character(30),
+    tel character(10),
+    email character(30),
+    "end" character(50)
+);
+
+
+ALTER TABLE public.cliente OWNER TO postgres;
+
+--
+-- Name: produto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE produto (
+    id integer NOT NULL,
+    nome character(30),
+    estoque integer,
+    valor_unit real
+);
+
+
+ALTER TABLE public.produto OWNER TO postgres;
+
+--
+-- Name: venda; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE venda (
+    id integer NOT NULL,
+    data date,
+    id_cliente integer,
+    id_produto integer,
+    qtde integer,
+    valor real,
+    id_vendedor integer
+);
+
+
+ALTER TABLE public.venda OWNER TO postgres;
+
+--
+-- Name: vendedor; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE vendedor (
+    id integer NOT NULL,
+    nome character(30),
+    tel character(10),
+    email character(30)
+);
+
+
+ALTER TABLE public.vendedor OWNER TO postgres;
+
+--
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cliente (id, nome, tel, email, "end") FROM stdin;
+1	José da Silva                 	22456677  	jose@gmail.com                	Rua X número Y                                    
+2	Manoel Fonseca                	23231122  	manoel@gmail.com              	Rua Y número Y                                    
+3	Paulo José                    	99874567  	paulo@gmail.com               	Rua Z número Y                                    
+4	Catarina Andrade              	34357799  	catarina@gmail.com            	Rua A número Y                                    
+5	Pedro Paulo Ramos             	99881213  	pedro@gmail.com               	Rua B número Y                                    
+6	Marinete Soares               	99805674  	marinete@gmail.com            	Rua C número Y                                    
+7	Letícia Gomes                 	9977226   	leticia@gmail.com             	Rua D número Y                                    
+8	Angélica Paiva                	87745567  	angelica@gmail.com            	Rua E número Y                                    
+9	Claudio Cesar                 	99707068  	claudio@gmail.com             	Rua F número Y                                    
+10	João dos Santos               	88191948  	jsantos@gmail.com             	Rua G número Y                                    
+11	Maria Amélia Ramos Souto      	\N	mamelia@gmail.com             	Rua H número Y                                    
+12	Katarina Borges               	976442311 	katarinab@gmail.com           	Rua I número Y                                    
+\.
+
+
+--
+-- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY produto (id, nome, estoque, valor_unit) FROM stdin;
+1	Lápis                         	1	4
+2	Borracha                      	1	1
+3	Régua                         	1	2
+4	Prancheta                     	1	10
+5	Cartolina                     	1	1
+6	Caneta                        	1	2
+\.
+
+
+--
+-- Data for Name: venda; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY venda (id, data, id_cliente, id_produto, qtde, valor, id_vendedor) FROM stdin;
+12	2014-02-05	2	2	2	2	1
+13	2014-02-06	2	3	1	2	1
+14	2014-02-06	10	4	1	10	2
+15	2014-02-06	11	5	5	5	1
+16	2014-02-06	12	1	4	4	2
+17	2014-02-06	8	3	2	4	1
+2	2014-02-01	2	2	10	10	2
+4	2014-02-02	4	4	1	10	2
+5	2014-02-02	5	5	2	2	1
+6	2014-02-03	6	1	2	2	2
+18	2014-02-07	4	6	2	4	1
+19	2014-02-07	6	6	1	2	2
+20	2014-02-07	8	1	10	10	1
+1	2014-02-01	1	1	100	100	1
+7	2014-02-03	7	3	2	4	1
+3	2014-02-02	3	3	1	2	1
+8	2014-02-04	1	6	2	4	1
+9	2014-02-04	8	6	1	2	2
+10	2014-02-04	9	1	10	10	1
+11	2014-02-05	1	1	100	100	1
+21	2015-09-10	1	3	20	40	1
+22	2015-09-10	2	1	2	4	1
+23	2015-09-10	1	2	2	2	2
+24	2015-09-10	2	3	2	4	2
+25	2015-09-10	3	4	2	20	1
+26	2015-09-10	10	5	2	2	2
+\.
+
+
+--
+-- Data for Name: vendedor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY vendedor (id, nome, tel, email) FROM stdin;
+2	Rubens Souza                  	23324455  	rubens@abc.com.br             
+1	Ana Maria Moura               	22223333  	ana@abc.com.br                
+\.
+
+
+--
+-- Name: pk_cliente; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cliente
+    ADD CONSTRAINT pk_cliente PRIMARY KEY (id);
+
+
+--
+-- Name: pk_produto; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY produto
+    ADD CONSTRAINT pk_produto PRIMARY KEY (id);
+
+
+--
+-- Name: pk_venda; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY venda
+    ADD CONSTRAINT pk_venda PRIMARY KEY (id);
+
+
+--
+-- Name: pk_vendedor; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY vendedor
+    ADD CONSTRAINT pk_vendedor PRIMARY KEY (id);
+
+
+--
+-- Name: fk_venda_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY venda
+    ADD CONSTRAINT fk_venda_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id);
+
+
+--
+-- Name: fk_venda_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY venda
+    ADD CONSTRAINT fk_venda_produto FOREIGN KEY (id_produto) REFERENCES produto(id);
+
+
+--
+-- Name: fk_venda_vendedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY venda
+    ADD CONSTRAINT fk_venda_vendedor FOREIGN KEY (id_vendedor) REFERENCES vendedor(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
