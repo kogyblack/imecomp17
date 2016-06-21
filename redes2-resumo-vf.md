@@ -169,4 +169,29 @@
 
 ## 05 - IEEE 802 para Redes Locais
 
+##### Ethernet clássico
+
+- Topologia LAN em barramento
+- 10 Mbps
+- CSMA/CD
+- Uso de quadros com cabeçalho
+
+##### Padrão IEEE 802.3
+
+- Velocidade de transmissão de 10Mbps
+- Sinalização Manchester
+- Controle de acesso ao meio: CSMA/CD 1-persistente
+- Topologia: barra ou estrela
+- Tratamento de colisão: BEB
+
+vs Ethernet:
+- Preâmbulo
+- Interpretação do campo de controle (o que seria isso?)
+
+##### Opções de meios a 10Mbps
+
+`<taxa de dados> <método de sinalização> <comprimento máximo>`
+
+\#caguei
+
 
