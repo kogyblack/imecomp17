@@ -120,14 +120,14 @@
 
 ## 03 - Protocolos de Acesso ao Meio
 
-##### Alocação Estática
+### Alocação Estática
 
 - FDMA e TDMA
 - Canal é alocado para o usuário de forma independente da sua atividade
 - Desperdício  de recursos caso usuário não tenha nada a transmitir
 - Número limitado de usuários
 
-##### Acesso múltiplo
+### Acesso múltiplo
 
 - ALOHA
   - Transmite sempre que houver dados
@@ -169,14 +169,14 @@
 
 ## 05 - IEEE 802 para Redes Locais
 
-##### Ethernet clássico
+### Ethernet clássico
 
 - Topologia LAN em barramento
 - 10 Mbps
 - CSMA/CD
 - Uso de quadros com cabeçalho
 
-##### Padrão IEEE 802.3
+### Padrão IEEE 802.3
 
 - Velocidade de transmissão de 10Mbps
 - Sinalização Manchester
@@ -186,7 +186,7 @@
 
 vs Ethernet:
 - Preâmbulo
-- Interpretação do campo de controle (o que seria isso?)
+- Interpretação do campo de controle: ethernet -> tipo, 802.3 -> tamanho
 
 ##### Opções de meios a 10Mbps
 
@@ -194,4 +194,137 @@ vs Ethernet:
 
 \#caguei
 
+##### Quadros Ethernet e IEEE 802.3
 
+- Ethernet
+  - Preâmbulo: 8 bytes
+  - End. Destino: 6 bytes
+  - End. Origem: 6 bytes
+  - Tipo: 2 bytes
+  - Dados: 46 a 1500 bytes
+  - Checksum: 4 bytes
+
+- IEEE 802.3
+  - Preâmbulo: 7 bytes
+  - Start of Frame (SoF): 1 byte
+  - End. Destino: 6 bytes
+  - End. Origem: 6 bytes
+  - Tamanho: 2 bytes
+  - Dados: 46 a 1500 bytes
+  - Checksum: 4 bytes
+
+Preâmbulo: todos os bytes -> 10101010
+SoF: 10101011
+Tamanho:
+- `<= 1500`: tamanho da área de dados
+- `> 1500`: tipo da PDU
+
+A área de dados deve conter entre 46 a 1500 bytes obrigatoriamente. Pode-se
+inserir bytes extras sem informação (_padding_) para completar o tamanho mínimo
+do quadro.
+
+##### Endereço MAC
+
+- 6 bytes (48 bits)
+- 3 octetos -> fabricante, 3 octetos -> terminal
+- 3 tipos de endereço: unicast, multicast (01:xx:xx:xx:xx:xx) e broadcast
+    (FF:FF:FF:FF:FF:FF)
+
+##### Tratamento de colisões - Binary Exponential Back-off (BEB)
+
+- Havendo colisão as estações envolvidas produzem JAM
+- Após o JAM casa estação aguarda um intervalo de tempo aleatório definodo como:
+  - Algoritmo (BEB):
+    - 1ª colisão: cada estação espera 0 ou 1 slots de tempo
+    - 2ª colisão: cada estação espera 0, 1, 2 ou 3 slots de tempo
+    - nª colisão: 0 a 2^n-1 slots (limitado a 1024 slots no total)
+    - se n = 16 é reportado um erro
+
+### Repetidores e Hubs
+
+- Repetidor: não reconhece o conteúdo da informação (nível físico).
+  - Função: amplificar, limpar e retransmitir o sinal
+  - Uso: aumentar a extensão da rede
+- Hub: "repetidor de várias portas"
+  - Função: concentrar o tráfego de rede, unindo os _hosts_ da LAN
+  - Os sinais recebidos em qualquer porta são retransmitidos para todas as
+      outras
+  - Fisicamente -> estrela, logicamente -> barramento. Portanto tem um único
+      domínio de colisão
+
+### Pontes e switches
+
+- Pontes
+  - Operam na camada de enlace
+  - Dividem a rede em segmentos para reduzir as colisões
+  - Redirecionam e descartam quadros de acordo com seus endereços físicos (MAC)
+      (origem e destino no mesmo segmento não é repassado)
+  - Monta mapa com todos os nós de cada segmento
+  - Podem ser usados para conversão de protocolos: 802.x -> 802.y
+  - Vantagens:
+    - Confiabilidade: cria unidades autocontidas
+    - Desempenho: número menor de disputas
+    - Segurança: nem todos os dados são enviados para todos os usuários
+    - Geografia: permite enlaces de maior distância
+- Switches
+  - _Tipicamente_ atua na camada de enlace
+  - Permite a segmentação da rede sem agregar latência (como nas pontes e
+      roteadores)
+  - O switch cria um circuito dedicado entre dois segmentos quando se precisa
+      passar um quadro de um segmento para outro.
+  - Vantagens:
+    - Cada dispositivo tem uma capacidade dedicada equivalente à LAN inteira
+    - Fácil expansão da rede
+  - Tipos:
+    - Store-and-forward
+    - Cut-through
+
+Diferenças:
+- Tratamento do quadro:
+  - Ponte: software
+  - Switch: hardware
+- Pontes -> um quadro por vez, switches -> vários quadros de uma vez
+- Pontos -> store-and-forward, switches -> cut-through
+
+### Spanning Tree
+
+- Resolve problemas de loop em redes comutadas cuja topologia introduz anéis nas
+    ligações
+- Calcula menor caminho, colocando cada porta de bridge/switch como forwarding
+    ou blocking
+
+### VLAN
+
+- Agrupamento lógico de dispositivos (independente da localização)
+- Isolamento de tráfego
+- Inclusão dinâmica
+  - Vantagens
+    - Segurança
+    - Projetos/Aplicativos especiais
+    - Desempenho/Largura de banda
+    - Broadcast/Fluxo de tráfego
+    - Departamentos/Tipos específicos de cargos
+
+### IEEE 802.5 - Token Ring
+
+- Topologia anel
+- Uma ou mais permissões (token) circulam pelo anel
+- Não existem colisões
+- Possui limite máximo para o retardo e tamanho mínimo do anel (deve caber o
+    token - 24 bits)
+- Acesso ao meio é justo
+- Boa estabilidade em alta carga e pouco eficiente em baixa carga
+- Estação de origem é responsável pela retirada do quadro da rede (fácil
+    confirmação)
+- Manutenção do anel: estação monitora
+- (Wire center: topologia física estrela, porém implementa anel)
+
+##### Modos de operação
+
+- Antes de transmitir é setado o bit de permissão (permissão ocupada)
+- 3 Modos de operação:
+  - Single packet: só há uma permissão e, no máximo, um quadro na rede por vez
+      (e o quadro deve ser removido por completo antes de liberar o token)
+  - Single token: O token é liberado assim que recebido de volta (e só depois
+      retira o quadro)
+  - Multiple token
