@@ -328,3 +328,67 @@ Diferenças:
   - Single token: O token é liberado assim que recebido de volta (e só depois
       retira o quadro)
   - Multiple token
+
+## 06 - IEEE 802 para Redes Sem Fio
+
+### IEEE 802.11 - WiFi
+
+- Arquitetura
+  - BSS (Basic Service Set): grupo de estações comunicando-se por radiodifusão
+      ou infravermelho em uma BSA
+  - BSA (Basic Service Area): área de cobertura de um ponto de acesso (AP)
+  - Ponto de Acesso (AP): estações responsáveis pela captura das transmissões
+      destinadas a estações localizadas em outras BSA
+  - Sistema de distribuição (DS): infraestrutura de comunicação que interliga
+      múltiplas BSA
+  - BSSID (Basic Service Set Identification): identificação única do BSS
+  - SSID (Server Set identification): nome _human-readable_
+  - ESA (Extended Service Area): interligação de vários BSA pelo DS através dos
+      APs
+  - ESS (Extended Service Set): (tudo!)
+- Topologias
+  - AdHoc
+  - Infra-estruturado
+
+##### Camada Física
+
+- Dividida em duas subcamadas
+  - PLCP: Auxilia a sincronização
+  - PMD: transmite os bits da PLCP
+- 802.11n
+  - MIMO
+    - Usa diversas antenas
+    - São transmitidos múltiplos fluxos ao mesmo tempo e no mesmo canal
+
+##### Camada de Enlace
+
+- Medium Access Control (MAC): DCF, PCF
+  - PCF
+    - _Polling_
+    - Pouco usado
+  - DCF
+    - CSMA/CA
+  -  Detecção do meio: portadora física ou portadora virtual
+- CSMA/CA
+  - BEB
+  - Janela de contenção: quadro anterior + DIFS + (slots do BEB)
+    - CW = ((CWmin + 1) * 2^(i-1)) - 1
+  - Interframe Space (do menor pro maior, de maior pra menor prioridade)
+    - SIFS: short (antes de CTS/Dados/ACK)
+    - PIFS: PCF
+    - DIFS: DCF (antes de RTS)
+    - EIFS: Extended
+  - ACK após todo quadro unicast
+  - RTS/CTS
+    - Só deve ser usada: em ambientes com grande concorrência ou para envio de
+        quadro grande
+  - Tipos de mensagem
+    - 00: Gerenciamento -> RTS/CTS/ACK/PS-Poll
+    - 01: Controle
+    - 10: Dados
+  - Quadros de gerenciamento:
+    - Beacon
+    - Probe request/response
+    - Association/reassociation request
+    - Authentication
+    - Disassociation/Deauthentication
