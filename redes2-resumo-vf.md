@@ -151,6 +151,7 @@
     - Canal livre: transmite com probabilidade p
     - Canal ocupado: espera até o próximo slot e repete o algoritmo
 - CSMA/CD (collision detection)
+  - Ocupa canal
   - A transmissão é interrompida imediatamente após o transmissor perceber que
       houve colisão
   - Tamanho mínimo do quadro: 2 * (taxa de transmissão) * (tempo de propagação)
@@ -392,3 +393,61 @@ Diferenças:
     - Association/reassociation request
     - Authentication
     - Disassociation/Deauthentication
+
+## 07 - Padrões WAN
+
+- Tipos de conexão
+  - Linha privada
+  - Comutado por circuito
+  - Comutado por pacote
+- Frame Relay
+  - Não usa controle de erros
+  - Controle de fluxo é fim a fim
+  - DTE/DCE
+  - DLCI: identifica o circuito virtual dentro da nuvem Frame Relay (dinâmico
+      com IARP ou manual)
+  - LMI: padrão de sinalização entre um roteador cliente e um switch frame-relay
+    - Responsável pelo gerenciamento e manutenção da comunicação
+  - CIR: taxa contratada
+  - bit DE: 0 se tiver que entregar, 1 se ultrapassar o CIR podendo não ser
+      entregue
+- ATM
+  - Transporte fim a fim integrado por voz, vídeo e dados
+  - Orientado à conexão
+  - Pacote percorre a rede e configura a conexão
+  - Usa células (53 bytes)
+    - Propriedades da comutação a pacote e à circuito
+    - Células pequenas são boas para tráfego de voz
+- MPLS
+  - Insere 20 bits de rótulo
+  - Encaminha pacotes pelos roteadores (LSR) sem consultar a tabela tradicional
+  - LSR: encaminha baseado no rótulo
+  - LSP: caminho dentro da rede
+  - FEC: grupo de pacotes roteados por um mesmo caminho
+  - LFIB: tabelas de encaminhamento
+
+## 08 - Camada Física
+
+- Dispersão modal: raios incidentes no cladding com ângulos diferentes, causando
+    espalhamento. Gera atenuação do sinal, portanto é necessário reduzir o
+    tamanho do cabo utilizado.
+
+Tipos de fibra:
+- Multimodo índice degrau
+- Multimodo índice gradual
+- Monomodo
+
+Cabeamento estruturado:
+- Distribuidor de campus
+- Backbone de campus
+- Distribuidor de edifício
+- Backbone de edifício
+- Distribuidor de piso
+- Cabeamento horizontal
+- Ponto de consolidação
+- Cabo do ponto de consolidação
+- Tomada de telecomunicações
+
+Tipos de Conexão:
+- Cruzada
+- Interconexão
